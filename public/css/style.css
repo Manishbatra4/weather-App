@@ -1,0 +1,139 @@
+body {
+    background: #2C3A47;
+    color: #CAD3C8;
+    font-family: arial, sans-serif;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh
+}
+
+h1 {
+    color: #00acee;
+    font-family: Nunito, sans-serif;
+    font-weight: 300;
+}
+
+p {
+    color: #CAD3C8;
+    font-size: 20px;
+    font-family: Lato, serif;
+    font-weight: 400;
+}
+
+img {
+    width: 600px;
+    height: 100%;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+footer {
+    border-top: 1px solid #aaa69d;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+
+header {
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+
+header a {
+    color: #F8EFBA;
+    border: 1px solid #3B3B98;
+    border-radius: 4px;
+    padding: 10px;
+    background: #227093;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+form {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 100%;
+}
+
+input {
+    font-family: inherit;
+    width: 80%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+input::placeholder {
+    color: transparent;
+}
+
+input:placeholder-shown ~ label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+}
+
+input:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+
+input:focus ~ label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight: 700;
+}
+
+/* reset input */
+input:required, input:invalid {
+    box-shadow: none;
+}
+
+button{
+    border: none;
+    padding: 10px;
+    color: #CAD3C8;
+    font-size: 18px;
+    border-radius: 7px;
+    transition: all 0.2s;
+    margin: 5px;
+    border-bottom: 0 solid #eee;
+    cursor: pointer;
+}
+
+button:active{
+    transform: scaleX(0.9) translateY(4px);
+}
+
+button.green{
+    background: #218F76;
+}
+button.green:not(:active){
+    border-bottom: 4px solid #62AA7D;
+}
