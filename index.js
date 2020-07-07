@@ -7,6 +7,7 @@ const forecast = require('./utils/forecast');
 const geocode = require('./utils/geocode');
 
 const app = express();
+const port = process.env.PORT || 4000;
 
 const partials = path.join(__dirname, '/resources/partials');
 
@@ -69,6 +70,6 @@ app.get('*', (request, response) => {
     });
 });
 
-app.listen('4000', () => {
+app.listen(port, () => {
     console.log('Server is running at http://localhost:4000');
 });
