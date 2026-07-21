@@ -1,16 +1,22 @@
-const request = require('request');
+const forecast = (latitude, longitude) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.OPENWEATHER_API_KEY}&units=metric`;
 
-const forecast = (latitude, longitude, callback) => {
-    const url = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=21c9ae97f01c5cac6d9bbfd9db78c4c8&units=metric";
-    request({url, json: true}, (error, {body}) => {
-        if (error) {
-            callback('unable to connect to weather services api!', undefined);
-        } else if (body.error) {
-            callback('unable to find location!', undefined);
-        } else {
-            callback(undefined, "Today's weather is " + body.weather[0].description + " Current Temperature is " + body.main.temp_max + " degree out there.");
-        }
-    });
-}
+    return fetch(url)
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error('Unable to connect to weather services!');
+            }
+            return res.json();
+        })
+        .then((body) => {
+            if (body.error) {
+                throw new Error('Unable to find location!');
+            }
+            return `Today's weather is ${body.weather[0].description}. Current temperature is ${body.main.temp_max}°C out there.`;
+        })
+        .catch(() => {
+            throw new Error('Unable to connect to weather services!');
+        });
+};
 
 module.exports = forecast;
